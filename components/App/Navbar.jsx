@@ -17,10 +17,10 @@ export default function Navbar() {
         {config.user.user_name}
     </p>
     <div className="flex space-x-4 inline-flex items-center">
-    <button onClick={() => handleRedirect('mailto:nicatdcw@mail.az')} type="button" className="h-8 w-8 items-center bg-gray-900 disable-blue text-sm text-gray-500 rounded-md md:hidden focus:outline-none dark:text-gray-400 focus:outline-none dark:hover:bg-gray-700 dark:focus:ring-gray-900" aria-controls="navbar-default" aria-expanded="false">
+    <button onClick={() => handleRedirect('mailto:nicatdcw@mail.az')} type="button" className="h-8 w-8 items-center bg-gray-900 dark:bg-black disable-blue text-sm text-gray-500 rounded-md md:hidden focus:outline-none dark:text-gray-400 focus:outline-none dark:hover:bg-gray-700 dark:focus:ring-gray-900" aria-controls="navbar-default" aria-expanded="false">
      <BsMailbox2 className="w-8 h-7"/>
     </button>
-    <button onClick={() => handleRedirect('https://github.com/Nicat-dcw')} type="button" className="h-8 bg-gray-900 disable-blue inline-flex items-center text-sm text-gray-500 rounded-md md:hidden focus:outline-none dark:text-gray-400 focus:outline-none dark:hover:bg-gray-700 dark:focus:ring-gray-900" aria-controls="navbar-default" aria-expanded="false">
+    <button onClick={() => handleRedirect('https://github.com/Nicat-dcw')} type="button" className="h-8 bg-gray-900 dark:bg-black disable-blue inline-flex items-center text-sm text-gray-500 rounded-md md:hidden focus:outline-none dark:text-gray-400 focus:outline-none dark:hover:bg-gray-700 dark:focus:ring-gray-900" aria-controls="navbar-default" aria-expanded="false">
      <BsGithub className="w-8 h-7"/>
     </button>
     </div>

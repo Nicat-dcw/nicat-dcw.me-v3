@@ -71,7 +71,7 @@ export default function Hero() {
 
       {/* Name and position */}
       <div className="mt-16 flex flex-col items-center">
-        <h4 className="text-xl -ml-40 font-bold text-white dark:text-white">
+        <h4 className="text-xl -ml-40 font-bold text-black dark:text-white">
             {(user.discord_user) ? user.discord_user.username : (<Skeleton height={2} />)}     
         </h4> {/* {(user.discord_user.discord_status === "idle") ? (<div className="ml-2 w-32 h-12 rounded-full bg-amber-500 animate-ping"></div>) : (<div className="ml-2 w-32 h-12 rounded-full bg-gray-700 animate-ping"></div>)} */}
         <p className="text-base font-normal text-black dark:text-gray-600">{(store.role) ? store.role : (<Skeleton height={4} duration={4000}/>)}</p>
@@ -123,7 +123,7 @@ export default function Hero() {
             <img className="h-[83px] w-[83px] rounded-lg" src={user.spotify.album_art_url} alt="Album Image" />
           </div>
           <div className="ml-4">
-            <p className="text-base font-medium text-white dark:text-white">
+            <p className="text-base font-medium text-black dark:text-white">
                 {user.spotify.song}
             </p>
             <p className="mt-2 text-sm text-gray-600">
