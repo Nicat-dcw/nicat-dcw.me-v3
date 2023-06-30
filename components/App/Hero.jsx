@@ -78,7 +78,7 @@ export default function Hero() {
             <>
                 {/*{isScrollingUp && <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"/>}*/}
    <PullToRefresh onRefresh={handleRefresh} canFetchMore={true}>         
-    <div ref={divRef} className={"!z-5 relative flex flex-col rounded-[20px] bg-white bg-clip-border shadow-3xl shadow-shadow-500 dark:bg-navy-800 dark:text-white dark:shadow-none items-center w-full  p-[16px] bg-cover"}>
+    <div className={"!z-5 relative flex flex-col rounded-[20px] bg-white bg-clip-border shadow-3xl shadow-shadow-500 dark:bg-navy-800 dark:text-white dark:shadow-none items-center w-full  p-[16px] bg-cover"}>
       {/* Background and profile */}
       <div
         className="relative mt-1 flex h-32 w-72 md:w-96 justify-center rounded-xl bg-cover"
