@@ -51,28 +51,6 @@ export default function Hero() {
         }
 
     }, [user])
-   /* const [isAtBottom, setIsAtBottom] = useState(false);
-    const [isScrollingUp, setIsScrollingUp] = useState(false);
-    const divRef = useRef(null);
-    useEffect(() => {
-    const handleScroll = () => {
-      const { scrollTop, clientHeight, scrollHeight } = divRef.current;
-
-      setIsScrollingUp(scrollTop > 0 && scrollTop < scrollHeight - clientHeight);
-      
-      if (scrollTop + clientHeight === scrollHeight) {
-        setIsAtBottom(true);
-      } else {
-        setIsAtBottom(false);
-      }
-    };
-
-    divRef.current.addEventListener('scroll', handleScroll);
-
-    return () => {
-      divRef.current.removeEventListener('scroll', handleScroll);
-    };
-  }, []);*/
     const ProfileCard = () => {
         return (
             <>
