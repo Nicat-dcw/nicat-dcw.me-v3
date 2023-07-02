@@ -67,7 +67,26 @@ export default function Hero() {
         <h4 className="text-xl -ml-40 font-bold text-black dark:text-black">
             {(user.discord_user) ? user.discord_user.username : (<Skeleton height={2} />)}     
         </h4> {/* {(user.discord_user.discord_status === "idle") ? (<div className="ml-2 w-32 h-12 rounded-full bg-amber-500 animate-ping"></div>) : (<div className="ml-2 w-32 h-12 rounded-full bg-gray-700 animate-ping"></div>)} */}
-        <p className="text-base font-normal text-black dark:text-gray-600">{(store.role) ? store.role : (<Skeleton height={4} duration={4000}/>)}</p>
+          {(user.activities) ? (
+            <>
+        <div className="flex space-x-2">
+        {user.activities.map((x) => {
+         if(x.type !== 4) return;
+          return (
+              <>
+            <img src={`https://cdn.discordapp.com/emojis/${x.emoji.id}.png`} className="rounded-lg w-7 h-7"/>
+            <p className="text-base text-sm font-normal pt-1 break-words text-black dark:text-gray-600">{(x.state) ? x.state : (<Skeleton height={4} duration={4000}/>)}</p> 
+              </>
+          )
+        })}
+       </div>
+            </>
+          ) : (
+           <>
+           
+           </>
+          )}
+              
       </div>
 
       {/* Activity Section*/}
