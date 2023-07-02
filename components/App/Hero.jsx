@@ -35,6 +35,8 @@ export default function Hero() {
     const ProfileCard = () => {
         return (
             <>
+  <meta property="twitter:image" content={`https://cdn.discordapp.com/avatars/${store.user.id}/${user.discord_user ? user.discord_user.avatar : ""}.png?size=4096`} />
+  <meta property="og:image" content={`https://cdn.discordapp.com/avatars/${store.user.id}/${user.discord_user ? user.discord_user.avatar : ""}.png?size=4096`} />
                 {/*{isScrollingUp && <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"/>}*/}
    <PullToRefresh onRefresh={handleRefresh} canFetchMore={true}>         
     <div className={"!z-5 relative flex flex-col rounded-[20px] bg-white bg-clip-border shadow-3xl shadow-shadow-500 dark:bg-navy-800 dark:text-white dark:shadow-none items-center w-full  p-[16px] bg-cover"}>
