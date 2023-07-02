@@ -9,3 +9,7 @@
   border-radius: 0.75em;
   border: 2px solid transparent;
 }
+[data-theme='dark'] {
+  background-color: black;
+  --foreground: white;
+}

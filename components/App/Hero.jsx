@@ -8,26 +8,7 @@ import Image from 'next/image'
 export default function Hero() {
     const [user, setUser] = useState({})
     const handleRefresh = () => {
-       // window.location.reload(false);
-     const websocket = new WebSocket("wss://api.lanyard.rest/socket")
-        
-        websocket.onmessage = data => {
-            var message = JSON.parse(data.data)
-            if (message.op) { 
-                if (message.op == 1) {
-                    setInterval(() => {
-                        websocket.send(JSON.stringify({ op: 3 }))
-                    }, message.d.heartbeat_interval)
-                    websocket.send(JSON.stringify({ op: 2,  d: {subscribe_to_ids: [store.user.id]} }))
-                }
-            }
-            if (message.t && (message.t == "INIT_STATE" || message.t == "PRESENCE_UPDATE")) {
-                console.log(message.d[store.user.id])
-                setTimeout(() => { setUser((message.t == "PRESENCE_UPDATE") ? message.d : message.d[store.user.id])},2000)
-                console.log(JSON.stringify(user))
-            }
-        }
-        
+       window.location.reload(false);     
     }
     useEffect(() => {
 
@@ -62,7 +43,7 @@ export default function Hero() {
         className="relative mt-1 flex h-32 w-72 md:w-96 justify-center rounded-xl bg-cover"
         style={{ backgroundImage: `url(${store.banner ? store.banner : "https://www.shutterstock.com/image-vector/stock-vector-illustration-technology-futuristic-260nw-1496394446.jpg"})` }}
       >
-          <div className="absolute -bottom-12 -ml-44 flex h-[87px] w-[87px] items-center justify-center rounded-full border-[4px] border-navy-700 bg-pink-400 dark:!border-navy-700">
+          <div className="absolute -bottom-12 -ml-44 flex h-[87px] w-[87px] items-center justify-center rounded-full border-[4px] border-navy-700 bg-blue-800 dark:!border-navy-700">
           <img layout="fill" className="h-full w-full rounded-full" src={`https://cdn.discordapp.com/avatars/${store.user.id}/${user.discord_user ? user.discord_user.avatar : ""}.png?size=4096`} alt="" />
         </div>
         <div className="absolute -bottom-10 flex -ml-32 items-center justify-center">{(user.discord_status === "idle") ? (<span className="absolute ml-2 w-4 h-4 rounded-full bg-amber-600 animate-ping opacity-75"><span className="relative bg-amber-500 "></span></span>) : (<span className="ml-2 w-4 h-4 rounded-full bg-gray-700 animate-ping"></span>)}</div>
@@ -71,7 +52,7 @@ export default function Hero() {
 
       {/* Name and position */}
       <div className="mt-16 flex flex-col items-center">
-        <h4 className="text-xl -ml-40 font-bold text-black dark:text-white">
+        <h4 className="text-xl -ml-40 font-bold text-black dark:text-black">
             {(user.discord_user) ? user.discord_user.username : (<Skeleton height={2} />)}     
         </h4> {/* {(user.discord_user.discord_status === "idle") ? (<div className="ml-2 w-32 h-12 rounded-full bg-amber-500 animate-ping"></div>) : (<div className="ml-2 w-32 h-12 rounded-full bg-gray-700 animate-ping"></div>)} */}
         <p className="text-base font-normal text-black dark:text-gray-600">{(store.role) ? store.role : (<Skeleton height={4} duration={4000}/>)}</p>
@@ -123,13 +104,13 @@ export default function Hero() {
             <img className="h-[83px] w-[83px] rounded-lg" src={user.spotify.album_art_url} alt="Album Image" />
           </div>
           <div className="ml-4">
-            <p className="text-base font-medium text-black dark:text-white">
+            <p className="text-base font-medium text-black dark:text-black">
                 {user.spotify.song}
             </p>
             <p className="mt-2 text-sm text-gray-600">
                 {user.spotify.artist}
               <a
-                className="ml-1 font-medium text-brand-500 hover:text-brand-500 dark:text-white"
+                className="ml-1 font-medium text-brand-500 hover:text-brand-500 dark:text-[#121313]"
                 href={`htts://open.spotify.com/track/${user.spotify.track_id}`}
               >
                   {user.spotify.album}
