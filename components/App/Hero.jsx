@@ -69,7 +69,7 @@ export default function Hero() {
         </h4> {/* {(user.discord_user.discord_status === "idle") ? (<div className="ml-2 w-32 h-12 rounded-full bg-amber-500 animate-ping"></div>) : (<div className="ml-2 w-32 h-12 rounded-full bg-gray-700 animate-ping"></div>)} */}
           {(user.activities) ? (
             <>
-        <div className="flex space-x-2">
+        <div className="flex space-x-2 justify-center items-center ml-12">
         {user.activities.map((x) => {
          if(x.type !== 4) return;
           return (
