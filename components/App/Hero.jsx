@@ -1,11 +1,14 @@
 import { useEffect, useState, useRef } from 'react'
+import config from '../../store/config'
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
 import store from '../../store/config.js'
 import PullToRefresh from 'react-simple-pull-to-refresh';
 import Image from 'next/image'
+import { useRouter } from 'next/router' 
 
 export default function Hero() {
+    const router = useRouter()
     const [user, setUser] = useState({})
     const handleRefresh = () => {
        window.location.reload(false);     
@@ -49,7 +52,14 @@ export default function Hero() {
           <img layout="fill" className="h-full w-full rounded-full" src={`https://cdn.discordapp.com/avatars/${store.user.id}/${user.discord_user ? user.discord_user.avatar : ""}.png?size=4096`} alt="" />
         </div>
         <div className="absolute -bottom-10 flex -ml-32 items-center justify-center">{(user.discord_status === "idle") ? (<span className="absolute ml-2 w-4 h-4 rounded-full bg-amber-600 animate-ping opacity-75"><span className="relative bg-amber-500 "></span></span>) : (<span className="ml-2 w-4 h-4 rounded-full bg-gray-700 animate-ping"></span>)}</div>
-          
+        <div className="absolute -bottom-10 flex -mr-[10rem] items-center">
+        <div className="flex space-x-1.5 w-[135px] border-2 rounded-lg shadow-inner bg-gray-700 dark:bg-[#0e1622]">
+        <img src="https://cdn3.emoji.gg/emojis/1769-discordstaff.png" className="w-7 h-7 ml-1" alt="DiscordStaff"/>
+        <img src="https://cdn3.emoji.gg/emojis/1207-icon-earlybotdeveloper.png" className="w-7 h-7 ml-1" alt="icon_earlybotdeveloper"/>
+        <img src="https://cdn3.emoji.gg/emojis/9928-discordpartner-badge.png" className="w-7 h-7 mr-4" alt="DiscordPartner_Badge"/>
+        <img src="https://cdn3.emoji.gg/emojis/5814-boost12.png" className="w-7 h-7 mr-8 right-4" alt="Boost12"/>
+        </div>
+        </div>
       </div>
 
       {/* Name and position */}
@@ -65,13 +75,10 @@ export default function Hero() {
           {(user.listening_to_spotify === false) ? (
         <div className="linear mt-4 flex justify-center items-center justify-center rounded-xl bg-cyan-500 px-2 py-1 text-base font-medium text-white transition duration-200 hover:bg-brand-600 active:bg-brand-700 dark:bg-brand-400 dark:text-white dark:hover:bg-brand-300 dark:active:bg-brand-200">
         <button
-          onClick={handleRefresh}
-          className="linear mt-4 flex items-center justify-center rounded-xl bg-brand-500 px-2 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-600 active:bg-brand-700 dark:bg-brand-400 dark:text-white dark:hover:bg-brand-300 dark:active:bg-brand-200"
+          onClick={() => router.push(`https://discord.com/users/${config.user.id}`)}
+          className="linear flex justify-center items-center justify-center rounded-xl bg-brand-500 w-44 px-2 py-2 text-base font-medium text-center text-white transition duration-200 hover:bg-brand-600 active:bg-brand-700 dark:bg-brand-400 dark:text-white dark:hover:bg-brand-300 dark:active:bg-brand-200"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-8 pb-4">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-</svg>
-
+         Click for Contact
         </button>
             
         </div>
@@ -103,7 +110,7 @@ export default function Hero() {
       <div className="flex w-full items-center justify-between rounded-2xl bg-white p-3 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
         <div className="flex items-center">
           <div className="">
-            <img className="h-[83px] w-[83px] rounded-lg" src={user.spotify.album_art_url} alt="Album Image" />
+            <img className="w-40 h-[83px] rounded-lg" src={user.spotify.album_art_url} alt="Album Image" />
           </div>
           <div className="ml-4">
             <p className="text-base font-medium text-black dark:text-black">
